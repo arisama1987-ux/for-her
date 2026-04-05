@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>For You 💖</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+      background: pink;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<h1>ถึงคนเก่งของเรา 💕</h1>
+<p id="msg">กดปุ่มสิ!</p>
+
+<button onclick="showMsg()">กดเลย</button>
+
+<script>
+function showMsg() {
+  const messages = [
+    "เก่งมากเลยวันนี้ ❤️",
+    "พักบ้างนะ เป็นห่วงนะ",
+    "เรารักเธอมากนะ 💖",
+    "สู้ ๆ อีกนิดนะ!"
+  ];
+  const random = Math.floor(Math.random() * messages.length);
+  document.getElementById("msg").innerText = messages[random];
+}
+</script>
+
+</body>
+</html>
