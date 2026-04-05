@@ -1,39 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>For You 💖</title>
+  <title>สำหรับอ้วน 💖</title>
   <style>
     body {
+      margin: 0;
       text-align: center;
       font-family: sans-serif;
-      background: pink;
+      background: linear-gradient(to top, #ffd1dc, #ffe6f0);
+      overflow: hidden;
     }
+
+    h1 {
+      margin-top: 80px;
+      color: #ff4d6d;
+    }
+
     button {
-      padding: 15px;
+      padding: 15px 25px;
       font-size: 18px;
-      border-radius: 10px;
+      border-radius: 15px;
       border: none;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+
+    #msg {
+      font-size: 20px;
+      margin: 20px;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {transform: translateY(100vh); opacity: 1;}
+      100% {transform: translateY(-10vh); opacity: 0;}
     }
   </style>
 </head>
 <body>
 
-<h1>ถึงคนเก่งของเรา 💕</h1>
-<p id="msg">กดปุ่มสิ!</p>
+<h1>ถึงคนก่ง 💕</h1>
+<p id="msg">กดปุ่มเลยย 💖</p>
 
-<button onclick="showMsg()">กดเลย</button>
+<button onclick="showMsg()">กดตรงนี้ๆๆ</button>
+
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 function showMsg() {
   const messages = [
-    "เก่งมากเลยวันนี้ ❤️",
-    "พักบ้างนะ เป็นห่วงนะ",
-    "เรารักเธอมากนะ 💖",
-    "สู้ ๆ อีกนิดนะ!"
+    "วันนี้เก่งมากเลย ❤️",
+    "พี่ภูมิใจในตัวอ้วนนะ",
+    "อยุ่ด้วยกันนานๆนะ",
+    "พี่รักอ้วนที่สุดเลยนะ 💖",
+    "เหนื่อยก็พักนะ เดี๋ยวพี่กอดเอง 🤗"
   ];
   const random = Math.floor(Math.random() * messages.length);
   document.getElementById("msg").innerText = messages[random];
 }
+
+// หัวใจลอย
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}, 300);
 </script>
 
 </body>
